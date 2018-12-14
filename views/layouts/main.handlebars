@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Translate</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+</head>
+<body>
+
+    {{{ body }}}
+
+
+
+<script>
+   document.getElementById('user1').addEventListener('keyup', function(){
+        document.getElementById('twomsg').innerHTML = "user one typing...."
+           document.getElementById('user1').addEventListener('blur', function(){
+        document.getElementById('twomsg').innerHTML = ""
+
+           });
+    })
+
+   document.getElementById('user2').addEventListener('keyup', function(){
+        document.getElementById('messagesone').innerHTML = "user two typing...."
+           document.getElementById('user2').addEventListener('blur', function(){
+        document.getElementById('messagesone').innerHTML = ""
+
+           });
+    })
+
+document.getElementById('sub1').addEventListener('click', function(){
+    var name = document.getElementById('user1').value;
+ var xhr = new XMLHttpRequest();
+
+xhr.open('GET', `/ta/${name}`, true);
+
+xhr.onload = function(){
+    if(this.status === 200){
+        var msd = JSON.parse(this.responseText);
+
+    document.getElementById('msgval2').innerHTML += msd + "<br/>" + "<br>";
+
+    }
+}
+
+xhr.send()
+
+
+
+});
+
+document.getElementById('sub2').addEventListener('click', function(){
+    
+var name = document.getElementById('user2').value;
+ var xhr = new XMLHttpRequest();
+
+xhr.open('GET', `/en/${name}`, true);
+
+xhr.onload = function(){
+    if(this.status === 200){
+        var msv = JSON.parse(this.responseText);
+
+    document.getElementById('msgval').innerHTML += msv + "<br/>" + "<br>";
+
+    }
+}
+
+xhr.send()
+
+});
+    </script>
+</body>
+</html>

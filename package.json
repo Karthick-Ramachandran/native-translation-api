@@ -1,0 +1,16 @@
+{
+  "name": "che",
+  "version": "1.0.0",
+  "description": "smb",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "author": "karthick",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.16.4",
+    "express-handlebars": "^3.0.0",
+    "translate-google": "^1.2.2"
+  }
+}
