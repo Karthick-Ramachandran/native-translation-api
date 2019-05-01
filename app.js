@@ -25,7 +25,7 @@ app.get('/:lang/:name', (req, res) => {
 
 
 })
-const port = process.env.PORT; 
+const port = 3000 || process.env.PORT; 
 app.listen(port, function(){
 console.log(`app started on port ${port}`)
 });
